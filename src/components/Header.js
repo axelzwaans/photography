@@ -15,7 +15,7 @@ const Header = () => {
           <img src={Logo} alt="logo" />
         </Link>
         {/* Navigation - initially hidden - show on desktop mode */}
-        <nav className="hidden lg:flex gap-x-12 font-semibold">
+        <nav className="hidden xl:flex gap-x-12 font-semibold">
           <Link
             to={"/"}
             className="text-[#696c6d] hover:text-primary transition"
