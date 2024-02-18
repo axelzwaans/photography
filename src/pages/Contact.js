@@ -70,7 +70,7 @@ const Contact = () => {
             transition={{ transition: transition1, duration: 1.5 }}
             className="lg:flex-1"
           >
-            <img src={camera} alt="" />
+            <img src={camera} alt="camera" />
           </motion.div>
         </div>
       </div>

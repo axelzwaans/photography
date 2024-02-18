@@ -1,6 +1,5 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
-import WomanImg from "../img/about/woman.png";
 import woman2 from "../img/about/woman2.jpg";
 
 import { Link } from "react-router-dom";
@@ -29,7 +28,7 @@ const About = () => {
         <div className="flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16">
           {/* image */}
           <div className="flex-1 max-h-96 lg:max-h-max order-2 lg:order-none overflow-hidden">
-            <img src={woman2} alt="" className="object-none object-bottom" />
+            <img src={woman2} alt="" />
           </div>
           {/* text */}
           <motion.div
