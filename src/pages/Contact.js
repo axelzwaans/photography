@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
 import WomanImg from "../img/contact/woman.png";
+import camera from "../img/contact/camera.png";
 
 import { motion } from "framer-motion";
 import { transition1 } from "../transitions";
@@ -69,7 +70,7 @@ const Contact = () => {
             transition={{ transition: transition1, duration: 1.5 }}
             className="lg:flex-1"
           >
-            <img src={WomanImg} alt="" />
+            <img src={camera} alt="" />
           </motion.div>
         </div>
       </div>
