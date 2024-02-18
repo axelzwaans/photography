@@ -9,7 +9,7 @@ import {
 
 const Socials = () => {
   return (
-    <div className="hidden xl:flex ml-24">
+    <div className="hidden lg:flex ml-24">
       <ul className="flex gap-x-4">
         <li>
           <a href="http://www.facebook.com" target="_blank" rel="noreferrer">
@@ -22,18 +22,8 @@ const Socials = () => {
           </a>
         </li>
         <li>
-          <a href="http://www.pinterest.com" target="_blank" rel="noreferrer">
-            <ImPinterest />
-          </a>
-        </li>
-        <li>
           <a href="http://www.instagram.com" target="_blank" rel="noreferrer">
             <ImInstagram />
-          </a>
-        </li>
-        <li>
-          <a href="http://www.youtube.com" target="_blank" rel="noreferrer">
-            <ImYoutube />
           </a>
         </li>
       </ul>

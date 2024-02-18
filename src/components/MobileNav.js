@@ -1,16 +1,16 @@
 import { useState } from "react";
-
-// import icons
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 import { CgMenuRight } from "react-icons/cg";
 
-// import link
-import { Link } from "react-router-dom";
+const menuItems = [
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/portfolio", label: "Portfolio" },
+  { path: "/contact", label: "Contact" },
+];
 
-//import motion
-import { motion } from "framer-motion";
-
-// menu variants
 const menuVariants = {
   hidden: {
     x: "100%",
@@ -39,7 +39,7 @@ const MobileNav = () => {
       <motion.div
         variants={menuVariants}
         initial="hidden"
-        animate={openMenu ? "show" : ""}
+        animate={openMenu ? "show" : "hidden"}
         className="bg-white shadow-2xl w-full absolute top-0 right-0 max-w-xs h-screen z-20"
       >
         {/* icon */}
@@ -51,18 +51,11 @@ const MobileNav = () => {
         </div>
         {/* menu list */}
         <ul className="h-full flex flex-col justify-center items-center gap-y-8 text-primary font-bold text-3xl font-primary">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/portfolio">Portfolio</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
+          {menuItems.map((item) => (
+            <li key={item} onClick={() => setOpenMenu(false)}>
+              <Link to={item.path}>{item.label}</Link>
+            </li>
+          ))}
         </ul>
       </motion.div>
     </nav>
