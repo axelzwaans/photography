@@ -1,4 +1,5 @@
-// import images
+import { useState, useContext } from "react";
+
 import WomanImg from "../img/about/woman.png";
 import woman2 from "../img/about/woman2.jpg";
 
@@ -6,7 +7,11 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { transition1 } from "../transitions";
 
+import { CursorContext } from "../context/CursorContext";
+
 const About = () => {
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
+
   return (
     <motion.section
       initial={{ opacity: 0, y: "100%" }}
@@ -15,7 +20,11 @@ const About = () => {
       transition={transition1}
       className="section"
     >
-      <div className="container mx-auto h-full relative">
+      <div
+        onMouseEnter={mouseEnterHandler}
+        onMouseLeave={mouseLeaveHandler}
+        className="container mx-auto h-full relative"
+      >
         {/* text & img wrapper */}
         <div className="flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16">
           {/* image */}
