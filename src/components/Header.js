@@ -1,6 +1,6 @@
 // import components
 import Socials from "./Socials";
-import Logo from "../img/header/logo.svg";
+import logo2 from "../img/header/logo2.png";
 import MobileNav from "./MobileNav";
 
 // import link
@@ -12,10 +12,10 @@ const Header = () => {
       <div className="flex flex-col lg:flex-row lg:items-center w-full justify-between">
         {/* Logo */}
         <Link to={"/"} className="max-w-[200px]">
-          <img src={Logo} alt="logo" />
+          <img src={logo2} alt="logo" />
         </Link>
         {/* Navigation - initially hidden - show on desktop mode */}
-        <nav className="hidden xl:flex gap-x-12 font-semibold">
+        <nav className="hidden lg:flex gap-x-12 font-semibold">
           <Link
             to={"/"}
             className="text-[#696c6d] hover:text-primary transition"
