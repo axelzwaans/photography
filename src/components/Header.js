@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import Socials from "./Socials";
 import MobileNav from "./MobileNav";
@@ -16,9 +16,36 @@ const navItems = [
 
 const Header = () => {
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll event
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 0) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Dynamic class for header style
+  const headerClass = scrolled && "bg-[#f0f9ff]";
+  const headerStyle = {
+    transition: "background-color 0.8s ease,",
+  };
 
   return (
-    <header className="fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[130px] flex items-center">
+    <header
+      className={`fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[130px] flex items-center ${headerClass}`}
+      style={headerStyle}
+    >
       <div className="flex flex-col lg:flex-row lg:items-center w-full justify-between">
         {/* Logo */}
         <Link
@@ -29,7 +56,7 @@ const Header = () => {
         >
           <img src={logo2} alt="logo" />
         </Link>
-        {/* Navigation - initially hidden - show on desktop mode */}
+        {/* Navigation */}
         <nav
           onMouseEnter={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
@@ -39,7 +66,7 @@ const Header = () => {
             <Link
               key={index}
               to={item.path}
-              className="text-[#696c6d] hover:text-primary transition"
+              className="hover:text-primary transition"
             >
               {item.label}
             </Link>
